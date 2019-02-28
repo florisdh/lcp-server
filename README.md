@@ -19,7 +19,7 @@ Player accounts are managed with a simple SQLite database, which can be found in
 ### Game connection
 The game will connect to the server directly using a TCP connection and will need to do a custom handshake to make the connection secure.
 #### Handshake
-The game will setup and generate RSA credentials and share the public key with the server. This pipeline is secure but it's one-way and it slow. That's why the server will now generate a random key for AES encryption. The server will share this key using the RSA pipeline with the game client and now both parties can communicate securely.
+The game will setup and generate RSA credentials and share the public key with the server. The pipeline is now secure but it's only one-way and it's slow. That's why the server will now generate a random key for AES encryption. The server will share this key using the RSA pipeline with the game client and now both parties can communicate securely.
 #### Peer to Peer
 For higher performance the game will also use a peer-to-peer setup between players. The server will share a random key with the game client, which the client has to send back to the server's UDP endpoint. This way the server will get the know UDP endpoint of the client, which is later shared with other players. When the game starts, the players will get eachothers UDP endpoints and are able to send communicate to eachother directly.
 
@@ -39,7 +39,7 @@ list rooms
 ```
 ### Force save database
 ```
-list rooms
+save
 ```
 ### Stopping
 ```
